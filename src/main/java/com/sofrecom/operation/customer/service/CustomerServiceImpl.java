@@ -7,7 +7,7 @@ import java.util.UUID;
 import com.sofrecom.operation.customer.dao.CustomerRepository;
 import com.sofrecom.operation.customer.entities.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
@@ -75,9 +75,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 			return customer.getResetPasswordToken();
 		}
-	 
-	     
-	 @Override  
+
+
+	 @Override
 	 public String  ResetPassword(String token,String password) {
 	    	Optional<Customer> userOptional = Optional
 	    			.ofNullable(customerRepository.findByResetPasswordToken(token));
@@ -85,16 +85,16 @@ public class CustomerServiceImpl implements CustomerService {
 	    	if (!userOptional.isPresent()) {
 	    		return "Invalid token.";
 	    	}
-	    	
+
 	    	Customer customer = userOptional.get();
-	    	BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
-	    	String encodedPassword=passwordEncoder.encode(password);
-	    	customer.setPassword(encodedPassword);
+	    	//BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
+	    	//String encodedPassword=passwordEncoder.encode(password);
+	    	//customer.setPassword(encodedPassword);
 	    	customer.setResetPasswordToken(null);
 	    	customerRepository.save(customer);
 	    	return "Password updated successfully";
 
-	    	
+
 	    }
 	 private String generateToken() {
 			StringBuilder token = new StringBuilder();

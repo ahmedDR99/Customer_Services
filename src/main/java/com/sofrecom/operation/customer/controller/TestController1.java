@@ -1,6 +1,6 @@
 package com.sofrecom.operation.customer.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +14,10 @@ public class TestController1 {
 		return "Public Content.";
 	}
 	
-	@GetMapping("/user")
+	/*@GetMapping("/user")
 	@PreAuthorize("hasRole('Customer') ")
 	public String userAccess() {
 		return "User Content.";
-	}
+	}*/
 
 }
